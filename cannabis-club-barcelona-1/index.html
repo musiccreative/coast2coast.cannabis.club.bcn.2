@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coast2Coast Barcelona</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-dark': '#0D1A1A', // Very dark, rich green
+            'brand-primary': '#18D860', // Vibrant, Weedmaps-like green
+            'brand-secondary': '#1A3A3A', // Muted green for card backgrounds
+            'brand-light': '#F0FFF4', // Mint cream / off-white
+            'brand-whatsapp': '#25D366', // Official WhatsApp Green
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* Custom styles and animations */
+    .map-cannabis-style {
+      filter: invert(90%) hue-rotate(120deg) brightness(95%) contrast(120%);
+    }
+    
+    .smoke-container {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .smoke-container span {
+        position: absolute;
+        bottom: -250px;
+        background-color: rgba(24, 216, 96, 0.05); /* Adjusted to new primary green */
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0;
+        animation: animateSmoke linear infinite;
+    }
+    
+    @keyframes animateSmoke {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 0;
+        }
+        20% {
+            opacity: 0.3;
+        }
+        80% {
+            opacity: 0.3;
+        }
+        100% {
+            transform: translateY(-50vh) scale(1.5);
+            opacity: 0;
+        }
+    }
+
+    /* Styles for Legal Page content, replacing the typography plugin */
+    .legal-content h2 {
+        color: #18D860; /* brand-primary */
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        font-size: 1.5rem; /* text-2xl */
+        font-weight: bold;
+    }
+    .legal-content p {
+        color: rgba(240, 255, 244, 0.8); /* brand-light/80 */
+        margin-bottom: 1rem;
+        line-height: 1.75;
+    }
+    .legal-content a {
+      color: #18D860; /* brand-primary */
+      text-decoration: underline;
+    }
+  </style>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/",
+      "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+      "lucide-react": "https://aistudiocdn.com/lucide-react@^0.552.0"
+    }
+  }
+  </script>
+
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-brand-dark">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
